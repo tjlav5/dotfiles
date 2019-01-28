@@ -19,3 +19,5 @@ antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
 
 # Tell Antigen that you're done.
 antigen apply
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
