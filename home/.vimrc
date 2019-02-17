@@ -135,3 +135,13 @@ autocmd QuickFixCmdPost *grep* cwindow
 let g:tsuquyomi_use_dev_node_module = 2
 
 colorscheme zenburn
+
+" Function to source only if file exists {
+function! SourceIfExists(file)
+  if filereadable(expand(a:file))
+    exe 'source' a:file
+  endif
+endfunction
+" }
+
+call SourceIfExists("~/vimrc.local")
