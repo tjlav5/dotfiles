@@ -1,80 +1,25 @@
 set nocompatible
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
 endif
-
-"========================"
-" Vim-plug configuration "
-"========================"
-
-call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-sensible'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'Valloric/MatchTagAlways'
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Quramy/tsuquyomi'            " enables TypeScript auto-completion.
-Plug 'leafgarland/typescript-vim'
-Plug 'jnurmine/Zenburn'
-call plug#end()
-
-" if isdirectory(expand('$HOME/.vim/bundle/Vundle.vim'))
-"   call vundle#begin()
-"   " Required
-"   Plugin 'gmarik/vundle'
-"   " Install plugins that come from github.  Once Vundle is installed, these can be
-"   " installed with :PluginInstall
-"   Plugin 'bling/vim-airline'
-"   " Plugin 'ctrlpvim/ctrlp.vim'
-"   Plugin 'junegunn/fzf'
-"   Plugin 'scrooloose/nerdcommenter'
-"   Plugin 'scrooloose/nerdtree'
-"   Plugin 'SirVer/ultisnips'
-"   Plugin 'tpope/vim-sensible'
-"   Plugin 'tpope/vim-fugitive'
-"   Plugin 'christoomey/vim-tmux-navigator'
-"   Plugin 'Valloric/MatchTagAlways'
-"   Plugin 'vim-scripts/netrw.vim'
-"   Plugin 'Shougo/vimproc.vim'          " Force install a dependency of tsuquyomi.
-"   Plugin 'leafgarland/typescript-vim'  " enables TypeScript syntax-highlighting.
-"   Plugin 'Quramy/tsuquyomi'            " enables TypeScript auto-completion.
-"   Plugin 'fatih/vim-go'
-"   " Plugin 'joshdick/onedark.vim'
-"   Plugin 'jnurmine/Zenburn'
-"   " Provide many default snippets for a variety of snippets.
-"   " Uncomment and :PluginInstall to enable
-"   " Plugin 'honza/vim-snippets'
-" 
-"   call vundle#end()
-" else
-"   echomsg 'Vundle is not installed. You can install Vundle from'
-"       \ 'https://github.com/VundleVim/Vundle.vim'
-" endif
-
-filetype plugin indent on
 
 "===================="
 " Some basic options "
 "===================="
 
+let mapleader="\<Space>"
+let maplocalleader="\\"
+
 " Enable syntax highlighting
 syntax on
 
 " Uncomment if you want to map ; to : to cut down on chording
-" nnoremap ; :
-
-" Automatically change the working path to the path of the current file
-autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+nnoremap ; :
 
 " Show line numbers
-set number
+" set number
+set relativenumber
 
 " Set tab spacing for Golang
 au Filetype go setlocal ts=4
@@ -90,10 +35,6 @@ set hlsearch
 " By default, it looks up man pages for the word under the cursor, which isn't
 " very useful, so we map it to something else.
 nnoremap <s-k> <CR>
-
-" Explicitly set the Leader to comma. You you can use '\' (the default),
-" or anything else (some people like ';').
-let mapleader=','
 
 " Easy split navigation
 nnoremap <C-h> <C-w>h
@@ -144,4 +85,4 @@ function! SourceIfExists(file)
 endfunction
 " }
 
-call SourceIfExists("~/vimrc.local")
+call SourceIfExists("~/.vimrc.local")
