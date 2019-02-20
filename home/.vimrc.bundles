@@ -19,7 +19,7 @@ Plug 'tpope/vim-sensible'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Valloric/MatchTagAlways'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'Quramy/tsuquyomi'            " enables TypeScript auto-completion.
+" Plug 'Quramy/tsuquyomi'            " enables TypeScript auto-completion.
 Plug 'leafgarland/typescript-vim'
 Plug 'jnurmine/Zenburn'
 Plug 'SirVer/ultisnips'

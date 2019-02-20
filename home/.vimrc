@@ -73,7 +73,7 @@ nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
 " TypeScript plugin setup
-let g:tsuquyomi_use_dev_node_module = 2
+" let g:tsuquyomi_use_dev_node_module = 2
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"
