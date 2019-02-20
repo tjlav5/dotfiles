@@ -1,5 +1,7 @@
 set nocompatible
 
+filetype plugin on
+
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
@@ -23,7 +25,8 @@ set relativenumber
 
 " Set tab spacing for Golang
 au Filetype go setlocal ts=4
-au Filetype scss setlocal sw=2
+au Filetype scss setlocal sw=2 ts=2
+au Filetype html setlocal sw=2 ts=2 expandtab
 
 " use » to mark Tabs and ° to mark trailing whitespace. This is a
 " non-obtrusive way to mark these special characters.
@@ -31,7 +34,7 @@ set list listchars=tab:»\ ,trail:°
 
 " Highlight the search term when you search for it.
 set hlsearch
-set hlsearch
+
 " By default, it looks up man pages for the word under the cursor, which isn't
 " very useful, so we map it to something else.
 nnoremap <s-k> <CR>
@@ -69,11 +72,13 @@ nnoremap <leader>l :Lines<cr>
 nmap <leader>/ :call NERDComment(0, "invert")<cr>
 vmap <leader>/ :call NERDComment(0, "invert")<cr>
 
-" Fugitive
-autocmd QuickFixCmdPost *grep* cwindow
-
 " TypeScript plugin setup
 let g:tsuquyomi_use_dev_node_module = 2
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 colorscheme zenburn
 
@@ -85,4 +90,4 @@ function! SourceIfExists(file)
 endfunction
 " }
 
-call SourceIfExists("~/.vimrc.local")
+call SourceIfExists("~/vimrc.local")
