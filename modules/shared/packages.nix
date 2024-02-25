@@ -1,6 +1,9 @@
 { pkgs }:
 
 with pkgs; [
+  alacritty
+  fzf
+
   # # General packages for development and system management
   # alacritty
   # aspell
