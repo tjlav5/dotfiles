@@ -205,30 +205,29 @@ let name = "TJ Lavelle";
       };
 
       window = {
+        dynamic_padding = true;
         opacity = 1.0;
         padding = {
           x = 24;
           y = 24;
         };
+        decorations = "full";
+        title = "Terminal";
+        class = {
+          instance = "Alacritty";
+          general = "Alacritty";
+        };
       };
 
       font = {
         normal = {
-          family = "MesloLGS NF";
-          style = "Regular";
+          # family = "MesloLGS NF";
+          # style = "Regular";
         };
         size = lib.mkMerge [
           (lib.mkIf pkgs.stdenv.hostPlatform.isLinux 10)
           (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin 14)
         ];
-      };
-
-      dynamic_padding = true;
-      decorations = "full";
-      title = "Terminal";
-      class = {
-        instance = "Alacritty";
-        general = "Alacritty";
       };
 
       colors = {
