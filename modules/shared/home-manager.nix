@@ -269,15 +269,19 @@ let name = "TJ Lavelle";
         Host github.com
           Hostname github.com
           IdentitiesOnly yes
+
+        Host cloud
+          Hostname tjlav5.c.googlers.com
+          LocalForward 9990 localhost:9990
       ''
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-        ''
-          IdentityFile /home/${user}/.ssh/id_github
-        '')
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-        ''
-          IdentityFile /Users/${user}/.ssh/id_github
-        '')
+      # (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
+      #   ''
+      #     IdentityFile /home/${user}/.ssh/id_github
+      #   '')
+      # (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
+      #   ''
+      #     IdentityFile /Users/${user}/.ssh/id_github
+      #   '')
     ];
   };
 
