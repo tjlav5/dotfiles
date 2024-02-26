@@ -35,14 +35,14 @@ let name = "TJ Lavelle";
       # Remove history data we don't want to see
       export HISTIGNORE="pwd:ls:cd"
 
-      # Emacs is my editor
-      export ALTERNATE_EDITOR=""
-      export EDITOR="emacsclient -t"
-      export VISUAL="emacsclient -c -a emacs"
+      # # Emacs is my editor
+      # export ALTERNATE_EDITOR=""
+      # export EDITOR="emacsclient -t"
+      # export VISUAL="emacsclient -c -a emacs"
 
-      e() {
-          emacsclient -t "$@"
-      }
+      # e() {
+      #     emacsclient -t "$@"
+      # }
 
       # nix shortcuts
       shell() {
@@ -68,7 +68,7 @@ let name = "TJ Lavelle";
     extraConfig = {
       init.defaultBranch = "main";
       core = { 
-	    editor = "vim";
+	editor = "vim";
         autocrlf = "input";
       };
       pull.rebase = true;
@@ -82,6 +82,9 @@ let name = "TJ Lavelle";
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      vim-nix
+    ];
  };
 
 #   vim = {
