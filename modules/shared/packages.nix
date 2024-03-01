@@ -4,7 +4,7 @@ with pkgs; [
   fira-code-nerdfont
 
   alacritty
-  fzf
+  # fzf
 
   # # General packages for development and system management
   # alacritty

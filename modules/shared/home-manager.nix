@@ -7,7 +7,11 @@ let name = "TJ Lavelle";
   # Shared shell configuration
   zsh = {
     enable = true;
-    autocd = false;
+    defaultKeymap = "viins";
+    enableAutosuggestions = true;
+    history = {
+      ignorePatterns = ["pwd" "ls" "cd"];
+    };
     plugins = [
       {
         name = "powerlevel10k";
@@ -33,7 +37,7 @@ let name = "TJ Lavelle";
       export PATH=$HOME/.local/share/bin:$PATH
 
       # Remove history data we don't want to see
-      export HISTIGNORE="pwd:ls:cd"
+      # export HISTIGNORE="pwd:ls:cd"
 
       # nix shortcuts
       shell() {
@@ -46,6 +50,10 @@ let name = "TJ Lavelle";
       # Always color ls and group directories
       alias ls='ls --color=auto'
     '';
+  };
+
+  fzf = {
+    enable = true;
   };
 
   git = {
