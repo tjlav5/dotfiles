@@ -54,6 +54,9 @@ let name = "TJ Lavelle";
 
   fzf = {
     enable = true;
+    tmux = {
+      enableShellIntegration = true;
+    };
   };
 
   git = {
@@ -198,6 +201,7 @@ let name = "TJ Lavelle";
       sensible
       yank
       prefix-highlight
+      tmux-fzf
       {
         plugin = rose-pine;
         extraConfig = ''
