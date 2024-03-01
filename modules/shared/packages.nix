@@ -1,6 +1,8 @@
 { pkgs }:
 
 with pkgs; [
+  fira-code-nerdfont
+
   alacritty
   fzf
 
