@@ -168,7 +168,7 @@ let name = "TJ Lavelle";
 
   ssh = {
     enable = true;
-
+    compression = true;
     extraConfig = lib.mkMerge [
       ''
         Host github.com

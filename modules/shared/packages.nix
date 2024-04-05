@@ -4,6 +4,9 @@ with pkgs; [
   fira-code-nerdfont
 
   alacritty
+
+  nodejs
+  firebase-tools
   # fzf
 
   # # General packages for development and system management
